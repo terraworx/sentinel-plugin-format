@@ -32,6 +32,6 @@ func (m *root) Func(key string) interface{} {
 	return nil
 }
 
-func (m *root) fmtString(input string, args ...any) string {
+func (m *root) fmtString(input string, args []any) string {
 	return fmt.Sprintf(input, args...)
 }

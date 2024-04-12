@@ -30,8 +30,20 @@ func TestImport(t *testing.T) {
 		Source string
 	}{
 		{
-			"string",
-			`main = subject.string("This is a formatted string with the value %s", "foo") is "This is a formatted string with the value foo"`,
+			"Basic usage",
+			`main = subject.string("Hello, %s!", ["world"]) == "Hello, world!"`,
+		},
+		{
+			"Format specifiers",
+			`main = subject.string("The value of pi is %.2f", [3.14159]) == "The value of pi is 3.14"`,
+		},
+		{
+			"Multiple arguments",
+			`main = subject.string("Values: %d, %s, %.2f", [42, "foo", 3.14]) == "Values: 42, foo, 3.14"`,
+		},
+		{
+			"Named format verbs",
+			`main = subject.string("The temperature is %d°F", [32]) == "The temperature is 32°F"`,
 		},
 	}
 
